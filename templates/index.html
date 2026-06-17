@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Clarifier：AI需求澄清助手</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="app-shell">
+            <header class="header">
+                <h1>Prompt Clarifier：AI需求澄清助手</h1>
+                <p>输入一个模糊需求，系统会用选择题帮你补全信息，并生成适合直接发给 AI 的提示词。</p>
+            </header>
+
+            <section class="panel">
+                <label for="requirementInput" class="label">你的模糊需求</label>
+                <textarea id="requirementInput" placeholder="例如：我想做一个能写进简历的AI项目，但是不知道做什么。"></textarea>
+                <button id="clarifyBtn" class="primary-btn">开始澄清需求</button>
+            </section>
+
+            <section id="questionSection" class="panel hidden">
+                <div class="section-title">
+                    <h2>选择题区域</h2>
+                    <span id="categoryBadge"></span>
+                </div>
+                <form id="questionForm" class="question-list"></form>
+                <button id="generateBtn" class="primary-btn">生成完整需求</button>
+            </section>
+
+            <section id="outputSection" class="panel hidden">
+                <div class="section-title">
+                    <h2>输出结果</h2>
+                    <button id="copyBtn" class="secondary-btn">一键复制</button>
+                </div>
+                <pre id="outputText"></pre>
+            </section>
+        </section>
+    </main>
+
+    <div id="toast" class="toast hidden">已复制到剪贴板</div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

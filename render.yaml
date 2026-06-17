@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: prompt-clarifier
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: OPENAI_MODEL
+        value: gpt-5.5
